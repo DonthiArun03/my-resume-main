@@ -1,0 +1,147 @@
+<div class="personal-info-container">
+  <div class="main-personal-info">
+    <div class="left-side">
+      <div class="left-side-header">
+        <div class="button-mac">
+          <img src="/assets/images/close-icon.png" class="button-icon">
+        </div>
+        <div class="button-mac yellow-button">
+          <img src="/assets/images/subtract-icon.png" class="button-icon">
+        </div>
+        <div class="button-mac green-button">
+          <img src="/assets/images/full-screen-icon.png" class="button-icon" (click)="fulllscreen()">
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let item of sideList">
+          <div class="accordion-header" (click)="toggleAccordion(item)">
+            <p class="title-beauty">{{ item.title }}</p>
+          </div>
+          <div class="accordion-content" [@accordionAnimation]="item.open ? 'open' : 'closed'">
+            <ng-container *ngFor="let sub of item.content">
+              <a class="subtitle-beauty" (click)="goTo(sub.link, item.link)">
+                <img *ngIf="sub.icon" [src]="'assets/images/side-icon/' + sub.icon" class="subitem-icons">
+                <p class="subitem-title">{{ sub.title }}</p>
+              </a>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="header-right-side">
+        <!-- <img src="/assets/images/my-image.jpeg" alt="Arun Donthi Profile" class="my-image"> -->
+      </div>
+
+      <div class="right-side-main">
+        <!-- About Section -->
+        <div id="about" class="about-container">
+          <div>
+            <h1>Arun Donthi</h1>
+            <p class="about-text">
+              Full-Stack Developer with nearly 2 years of experience building scalable web apps using Angular,
+              React.js, Java, and Spring Boot. Expertise in modernizing legacy systems, API development, and test
+              automation. Passionate about solving problems with technology and collaborating in Agile teams to
+              deliver high-performance solutions.
+            </p>
+            <a target="_blank"
+              href="https://drive.google.com/file/d/1Kb1wmnHmrxELiZoyPeP3tjIn3IAbMk_D/view?usp=drive_link">
+              <button class="content-button">
+                Download Resume
+              </button>
+            </a>
+          </div>
+          <img src="/assets/images/front-end-developer.png" class="about-image">
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="box-container">
+          <h4 class="box-headr">My Skills</h4>
+          <div class="main-skills">
+            <div class="skill-container" *ngFor="let item of skills">
+              <div class="skill-detail">
+                <img [src]="'/assets/images/skill-icons/' + item.icon" class="items-icon">
+                <p class="item-name">{{ item.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div id="jobs" class="box-container">
+          <h4 class="box-headr">My Jobs</h4>
+          <div class="main-jobs">
+            <div class="job-container" (click)="goTo('https://www.mphasis.com/', true)">
+              <div class="job-detail">
+                <div class="job-title">
+                  <!-- <img src="/assets/images/mphasis-logo.png" class="items-logo"> -->
+                  <p class="item-name">Mphasis Limited</p>
+                </div>
+                <p>Dec 2023 – Feb 2025</p>
+              </div>
+              <p class="item-detail">Associate Software Engineer</p>
+              <li>Migrated Angular 9 to Angular 17, reducing load time by 30%</li>
+              <li>Automated 60% of regression/API testing using Selenium & Postman</li>
+              <li>Delivered consistent Agile sprint deliverables</li>
+            </div>
+
+            <div class="job-container" (click)="goTo('https://www.mphasis.com/', true)">
+              <div class="job-detail">
+                <div class="job-title">
+                  <!-- <img src="/assets/images/mphasis-logo.png" class="items-logo"> -->
+                  <p class="item-name">Mphasis Limited</p>
+                </div>
+                <p>May 2023 – Dec 2023</p>
+              </div>
+              <p class="item-detail">Software Engineer Trainee</p>
+              <li>Developed Java Spring Boot banking platform with role-based security</li>
+              <li>Built RESTful APIs with 20% faster data access</li>
+              <li>Participated in peer reviews and Agile team collaboration</li>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects
+        <div id="projects" class="box-container">
+          <h4 class="box-headr">My Projects</h4>
+          <div class="main-projects">
+            <div class="project-box" *ngFor="let item of projects">
+              <div class="project-detail-container">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.detail }}</p>
+                <ng-container *ngIf="item.achievements">
+                  <li *ngFor="let a of item.achievements">{{ a }}</li>
+                </ng-container>
+              </div>
+              <a [href]="item.link" target="_blank" class="project-button" *ngIf="item.link"
+                [ngClass]="{'project-with-link': item.link}">
+                <button class="button-style">Open</button>
+              </a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Education -->
+        <div id="uni" class="box-container">
+          <h4 class="box-headr">My Education</h4>
+          <div class="main-uni">
+            <div class="uni-container">
+              <div class="uni-detail">
+                <div class="uni-title">
+                  <!-- <img src="/assets/images/college-icon.png" class="items-logo"> -->
+                  <div class="uni-items">
+                    <p class="item-name">B.Tech in Computer Science Engineering</p>
+                    <p class="item-uni">Guru Nanak Institutions Technical Campus, Hyderabad</p>
+                  </div>
+                </div>
+                <p class="uni-date">2019 – 2022</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
