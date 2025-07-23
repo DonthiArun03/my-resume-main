@@ -96,12 +96,12 @@ export class PersonalComponent {
         // },
         {
           title: 'Phone',
-          link: 'tel:+7386842524',
+          link: 'tel:+917386842524',
           icon: 'phone.png',
         },
         {
           title: 'Email',
-          link: 'donthiarun03@gmail.com',
+           link: 'mailto:donthiarun03@gmail.com',
           icon: 'email.png',
         },
       ],
